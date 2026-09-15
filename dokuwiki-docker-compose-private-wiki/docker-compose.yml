@@ -1,0 +1,14 @@
+services:
+  dokuwiki:
+    image: dokuwiki/dokuwiki:stable
+    container_name: dokuwiki
+    ports:
+      - "8081:80"
+    volumes:
+      - dokuwiki_data:/dokuwiki/data
+      - dokuwiki_conf:/dokuwiki/conf
+    restart: unless-stopped
+
+volumes:
+  dokuwiki_data:
+  dokuwiki_conf:

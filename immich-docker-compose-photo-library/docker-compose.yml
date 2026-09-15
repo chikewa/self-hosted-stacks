@@ -1,0 +1,48 @@
+services:
+  immich:
+    image: ghcr.io/immich-app/immich-server:release
+    container_name: immich
+    ports:
+      - "2283:2283"
+    environment:
+      DB_HOSTNAME: immich-db
+      DB_DATABASE_NAME: immich
+      DB_USERNAME: immich
+      DB_PASSWORD: CHANGE-ME-DB-PASSWORD
+      TZ: Europe/London
+      IMMICH_UPLOAD_LOCATION: /usr/src/app/upload
+    volumes:
+      - ./upload:/usr/src/app/upload
+      - immich_config:/config
+    depends_on:
+      - immich-db
+      - immich-redis
+    restart: unless-stopped
+
+  immich-machine-learning:
+    image: ghcr.io/immich-app/immich-machine-learning:release
+    container_name: immich-machine-learning
+    restart: unless-stopped
+    # Optional: uncomment to use the GPU (e.g. Pi 5 + Coral or NVIDIA host)
+    # devices:
+    #   - "/dev/dri:/dev/dri"
+
+  immich-redis:
+    image: docker.io/redis:alpine
+    container_name: immich-redis
+    restart: unless-stopped
+
+  immich-db:
+    image: tensorchord/vectordb:pg16-v0.4.2-triton
+    container_name: immich-db
+    environment:
+      POSTGRES_PASSWORD: CHANGE-ME-DB-PASSWORD
+      POSTGRES_USER: immich
+      POSTGRES_DB: immich
+    volumes:
+      - immich_db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  immich_db_data:
+  immich_config:

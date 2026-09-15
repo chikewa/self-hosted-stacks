@@ -1,0 +1,14 @@
+services:
+  syncthing:
+    image: syncthing/syncthing:latest
+    container_name: syncthing
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8384:8384"
+      - "127.0.0.1:22000:22000"
+      - "127.0.0.1:22000:22000/udp"
+    environment:
+      - TZ=Europe/London
+    volumes:
+      - ./config:/var/syncthing/config
+      - ./sync:/sync

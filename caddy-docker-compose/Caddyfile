@@ -1,0 +1,12 @@
+cloud.example.com {
+    reverse_proxy nextcloud:80
+}
+
+vault.example.com {
+    reverse_proxy vaultwarden:80
+    encode zstd gzip
+}
+
+status.example.com {
+    reverse_proxy uptime-kuma:3001
+}

@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+  - job_name: "node"
+    static_configs:
+      # node_exporter runs on the host network: use the Docker bridge
+      # gateway (172.17.0.1 by default) or the host's LAN IP
+      - targets: ["172.17.0.1:9100"]

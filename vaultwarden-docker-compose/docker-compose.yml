@@ -1,0 +1,14 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    ports:
+      - "8222:80"
+    environment:
+      DOMAIN: "https://vault.example.com"
+      SIGNUPS_ALLOWED: "true"
+      # After the first account exists, flip this to "false"
+      ADMIN_TOKEN: CHANGE-ME-64-CHARS-HEX
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

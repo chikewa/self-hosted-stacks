@@ -1,0 +1,14 @@
+services:
+  adguardhome:
+    image: adguard/adguardhome:latest
+    container_name: adguardhome
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:5354:53/udp"
+      - "127.0.0.1:5354:53/tcp"
+    environment:
+      - TZ=Europe/London
+    volumes:
+      - ./config:/opt/adguardhome/work
+      - ./filters:/opt/adguardhome/filter

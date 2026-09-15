@@ -1,0 +1,20 @@
+services:
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    ports:
+      - "3000:3000"
+      - "222:22"   # SSH for git clone via SSH (change if 222 is busy)
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE=sqlite3
+      - GITEA__server__DOMAIN=git.example.com
+      - GITEA__server__SSH_PORT=222
+      - GITEA__server__ROOT_URL=https://git.example.com/
+      - GITEA__security__INSTALL_LOCK=true
+    volumes:
+      - ./gitea:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped

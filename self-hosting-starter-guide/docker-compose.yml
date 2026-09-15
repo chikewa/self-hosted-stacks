@@ -1,0 +1,52 @@
+services:
+  miniflux:
+    image: miniflux/miniflux:latest
+    container_name: miniflux
+    environment:
+      DATABASE_URL: postgres://miniflux:***@miniflux-db/miniflux?sslmode=disable
+      BASE_URL: http://localhost:8082
+    ports:
+      - "8082:8080"
+    depends_on:
+      - miniflux-db
+    restart: unless-stopped
+
+  miniflux-db:
+    image: postgres:16-alpine
+    container_name: miniflux-db
+    environment:
+      POSTGRES_USER: miniflux
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: miniflux
+    volumes:
+      - miniflux_db:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    ports:
+      - "4533:4533"
+    environment:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info
+    volumes:
+      - ./music:/music:ro
+      - navidrome_data:/data
+    restart: unless-stopped
+
+  dokuwiki:
+    image: dokuwiki/dokuwiki:stable
+    container_name: dokuwiki
+    ports:
+      - "8081:80"
+    volumes:
+      - dokuwiki_data:/dokuwiki/data
+      - dokuwiki_conf:/dokuwiki/conf
+    restart: unless-stopped
+
+volumes:
+  miniflux_db:
+  navidrome_data:
+  dokuwiki_data:
+  dokuwiki_conf:
