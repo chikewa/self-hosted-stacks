@@ -4,7 +4,7 @@ Production-tested Docker Compose stacks, home-server guides and local-AI setups 
 
 **One repository, one directory per stack.** Each directory has the full tested guide as a `README.md`, the ready-to-run `docker-compose.yml` and every config file the guide uses. Clone, tweak hostnames/ports, `docker compose up -d`, done.
 
-**24 stacks** · all tested on a Debian 12 mini PC with Docker
+**25 stacks** · all tested on a Debian 12 mini PC with Docker
 
 ---
 
@@ -25,6 +25,7 @@ Production-tested Docker Compose stacks, home-server guides and local-AI setups 
 
 ## AI & LLM
 
+- [Ollama: Install and Run a Local LLM in 5 Minutes](/ollama-local-llm-guide/) — One install, one pull, one command: Ollama gets a working local model running fast. Includes measured…
 - [llama.cpp: Build, Run and Benchmark a Local LLM (CPU)](/llama-cpp-local-llm-guide/) — Build llama.cpp from source, load a GGUF model, serve it with llama-server and measure real…
 - [GGUF and Quantization Explained: Pick the Right Model Size](/gguf-quantization-explained/) — What a GGUF file actually is, what 8B and Q4_K_M really mean, and the memory math that turns “which model…
 - [Run Local AI on Your Home Server: The Complete Guide](/run-local-ai-home-server/) — Local AI has crossed a line: your own mini PC can run a real language model. What your hardware can…
