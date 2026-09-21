@@ -4,7 +4,7 @@ Production-tested Docker Compose stacks, home-server guides and local-AI setups 
 
 **One repository, one directory per stack.** Each directory has the full tested guide as a `README.md`, the ready-to-run `docker-compose.yml` and every config file the guide uses. Clone, tweak hostnames/ports, `docker compose up -d`, done.
 
-**27 stacks** · all tested on a Debian 12 mini PC with Docker
+**28 stacks** · all tested on a Debian 12 mini PC with Docker
 
 ---
 
@@ -25,6 +25,7 @@ Production-tested Docker Compose stacks, home-server guides and local-AI setups 
 
 ## AI & LLM
 
+- [Open WebUI in Docker: A Chat UI for Local LLMs](/open-webui-docker-compose/) — One Docker container turns a local model into a chat app the whole house can use. The tested two-container…
 - [llama.cpp vs Ollama vs LM Studio: Which to Use](/llama-cpp-vs-ollama-vs-lm-studio/) — Three front ends for the same GGUF models, compared with real lab numbers: control versus convenience…
 - [LM Studio: The Easiest Way to Run Local LLMs](/lm-studio-local-llm-guide/) — Browse a model catalogue, download with a click, chat in a window: LM Studio is the friendliest path into…
 - [Ollama: Install and Run a Local LLM in 5 Minutes](/ollama-local-llm-guide/) — One install, one pull, one command: Ollama gets a working local model running fast. Includes measured…
