@@ -28,12 +28,12 @@ services:
     #   - "/dev/dri:/dev/dri"
 
   immich-redis:
-    image: docker.io/redis:alpine
+    image: docker.io/valkey/valkey:9
     container_name: immich-redis
     restart: unless-stopped
 
   immich-db:
-    image: tensorchord/vectordb:pg16-v0.4.2-triton
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0
     container_name: immich-db
     environment:
       POSTGRES_PASSWORD: CHANGE-ME-DB-PASSWORD

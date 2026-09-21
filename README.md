@@ -4,7 +4,7 @@ Production-tested Docker Compose stacks, home-server guides and local-AI setups 
 
 **One repository, one directory per stack.** Each directory has the full tested guide as a `README.md`, the ready-to-run `docker-compose.yml` and every config file the guide uses. Clone, tweak hostnames/ports, `docker compose up -d`, done.
 
-**28 stacks** · all tested on a Debian 12 mini PC with Docker
+**29 stacks** · all tested on a Debian 12 mini PC with Docker
 
 ---
 
@@ -35,6 +35,7 @@ Production-tested Docker Compose stacks, home-server guides and local-AI setups 
 
 ## NAS & Media
 
+- [How Many 4K Streams Can Your Home Server Transcode?](/jellyfin-4k-hardware-transcoding/) — How many simultaneous 4K streams can your home server actually transcode before the picture buffers? We…
 - [Immich in Docker: Self-Hosted Photo Library (Compose Guide)](/immich-docker-compose-photo-library/) — Immich is the self-hosted photo backup that finally closes the loop on Google Photos: unlimited storage,…
 - [Jellyfin in Docker: A Self-Hosted Media Server for Movies and TV](/jellyfin-docker-compose-guide/) — Run Jellyfin with Docker Compose: the tested compose file, loopback port binding, hardware transcoding…
 

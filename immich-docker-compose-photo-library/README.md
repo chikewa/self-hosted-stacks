@@ -66,12 +66,12 @@ services:
     #   - "/dev/dri:/dev/dri"
 
   immich-redis:
-    image: docker.io/redis:alpine
+    image: docker.io/valkey/valkey:9
     container_name: immich-redis
     restart: unless-stopped
 
   immich-db:
-    image: tensorchord/vectordb:pg16-v0.4.2-triton
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0
     container_name: immich-db
     environment:
       POSTGRES_PASSWORD: CHANGE-ME-DB-PASSWORD
@@ -88,7 +88,7 @@ volumes:
 
 Notes on the non-obvious parts:
 
-- **The database image is `tensorchord/vectordb`, not plain Postgres.** It is a Postgres fork with the pgvector and pgvecto.rs extensions compiled in — Immich uses it for blur search and the embedding store. Do not “simplify” it to `postgres:16`; the server will refuse to start without the extensions.
+- **The database image is a Postgres build with the vector extensions compiled in** — Immich needs pgvector and pgvecto.rs for blur search and the embedding store. As of Immich v3.2.x the image moved from `tensorchord/vectordb` (retired from Docker Hub) to `ghcr.io/immich-app/postgres`. Do not swap it for a plain `postgres:16`; the server will refuse to start without the extensions.
 
 - `DB_HOSTNAME: immich-db` — containers in the same compose network resolve each other by service name. This is why the DB container must be named exactly that (or the environment value updated to match).
 
