@@ -4,7 +4,7 @@ Production-tested Docker Compose stacks, home-server guides and local-AI setups 
 
 **One repository, one directory per stack.** Each directory has the full tested guide as a `README.md`, the ready-to-run `docker-compose.yml` and every config file the guide uses. Clone, tweak hostnames/ports, `docker compose up -d`, done.
 
-**33 stacks** · all tested on a Debian 12 mini PC with Docker
+**35 stacks** · all tested on a Debian 12 mini PC with Docker
 
 ---
 
@@ -36,6 +36,7 @@ Production-tested Docker Compose stacks, home-server guides and local-AI setups 
 
 ## NAS & Media
 
+- [Immich vs Google Photos: Can You Actually Replace It?](/immich-vs-google-photos/) — Immich is the credible answer to ‘I want to stop using Google Photos.’ Here is where it matches, where it…
 - [Jellyfin vs Plex: Which One Fits Your Home Server?](/jellyfin-vs-plex/) — Jellyfin and Plex do the same job but make different bets on price, transcoding, and who controls your…
 - [Access Jellyfin from Outside Your Home Network](/jellyfin-remote-access/) — Getting Jellyfin to work off your home network comes down to one question: who connects to whom. Here are…
 - [How Many 4K Streams Can Your Home Server Transcode?](/jellyfin-4k-hardware-transcoding/) — How many simultaneous 4K streams can your home server actually transcode before the picture buffers? We…
@@ -61,6 +62,7 @@ Production-tested Docker Compose stacks, home-server guides and local-AI setups 
 
 ## Hardware
 
+- [Can a Mini PC Run a Local AI Model?](/can-a-mini-pc-run-local-ai/) — Can a cheap mini PC run a local LLM? Yes. We ran an 8B model on CPU-only hardware and measured it. Here is…
 - [What Hardware for a Home Server? Raspberry Pi vs Mini PC vs Desktop](/what-hardware-for-a-home-server/) — Raspberry Pi, used mini PC or repurposed desktop? A buying guide with real disk benchmarks, RAM guidance…
 
 ---
